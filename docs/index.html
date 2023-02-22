@@ -70,8 +70,8 @@
   <!-- Comment Area -->
   <script>
     const gitalk = new Gitalk({
-        clientID: 'b1530d490dd99ef2ab6a',
-        clientSecret: 'a537b1bf900757f8168c9d0645e037f8c98add1f',
+        clientID: process.env.ACCOUNT,
+        clientSecret: process.env.PASSWORD,
         repo: 'ZJU-Computer-Organization-Lab-2023',
         owner: 'Artessay',
         admin:  ['Artessay'],
