@@ -2,6 +2,7 @@
   * [实验说明](/preface/lab)
   * [前置知识](/preface/prerequisites)
   * [如何面对问题](/preface/facing-problems)
+* [Lab0](/Lab0/Lab0)
 * [附录](/appends/)
   * [实验环境使用说明](/appends/environment)
   * [RISC-V 指令速查](/appends/riscv-insts)
