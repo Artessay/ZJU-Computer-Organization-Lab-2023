@@ -3,6 +3,10 @@
   * [前置知识](/preface/prerequisites)
   * [如何面对问题](/preface/facing-problems)
 * [Lab0](/Lab0/Lab0)
+* [Lab1](/Lab1/)
+  * [Lab1-1](/Lab1/Lab1-1).
+  * [Lab1-2](/Lab1/Lab1-2).
+  * [tips](/Lab1/tips).
 * [附录](/appends/)
   * [实验环境使用说明](/appends/environment)
   * [RISC-V 指令速查](/appends/riscv-insts)
