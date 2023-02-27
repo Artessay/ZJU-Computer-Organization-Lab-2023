@@ -6,9 +6,11 @@
 
 💡请选择不低于 **2020.2** 的版本
 
-在校网的环境下，你可以选择下载课程FTP网站上的Vivado 2020.2版本的文件，下载解压后可以直接安装使用，但FTP传输过程速度相对较慢，可能需要较长时间。
+在校网的环境下，你可以选择下载课程FTP网站上的Vivado 2020.2版本的文件，下载解压后可以直接安装使用。课程FTP的地址如下：ftp://10.78.18.201。由于文件相对较大，推荐使用FileZilla等FTP文件传输工具协助进行传输。FTP传输过程速度相对较慢，可能需要较长时间。
 
-这里给出另一种在官网下载Vivado的方式：
+
+
+此外，这里给出另一种在官网下载Vivado的方式：
 
 * 在官网提供的[下载网页](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools/archive.html)中找到合适的版本(版本号；Windoww/Linux)，选择“...Web Installer”（约300MB的文件）。
 
