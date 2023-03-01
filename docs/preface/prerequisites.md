@@ -6,12 +6,12 @@
 
 根据以往经验，在实验过程中，大家经常会因为Verilog语法而在实现过程中出现问题。比如最常见的问题就是阻塞赋值和非阻塞赋值的错误使用，导致仿真和上板跑的结果不一样。
 
-如果不熟悉Verilog的，推荐大家去做一下[hdlbits](https://hdlbits.01xz.net/wiki/Main_Page)里面的verilog练习，应该不会花太长时间，但是对你熟悉Verilog很有帮助。
+如果不熟悉Verilog的，推荐大家去做一下[hdlbits](https://hdlbits.01xz.net/wiki/Main_Page)里面的Verilog练习，应该不会花太长时间，但是对你熟悉Verilog很有帮助。
 
 这里仅介绍部分本学期中大家可能会使用到的一些Verilog语法。
 
 * 变量
-  * verilog里面有两种类型的变量，一种是wire一种是reg。
+  * Verilog里面有两种类型的变量，一种是wire一种是reg。
     * wire物理上就是电路中的一条连线，不能hold值
     * reg是可以保存值的
 

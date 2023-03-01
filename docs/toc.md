@@ -8,6 +8,7 @@
   * [Lab1-2](/Lab1/Lab1-2)
   * [tips](/Lab1/tips)
 * [Lab2](/Lab2/)
+  * [tips](/Lab2/tips)
 * [附录](/appends/)
   * [实验环境使用说明](/appends/environment)
   * [RISC-V 指令速查](/appends/riscv-insts)
