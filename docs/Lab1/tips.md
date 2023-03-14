@@ -23,3 +23,21 @@
    ```
 
 3. 封装IP时均采用含源代码方式封装。便于后续的仿真以及对引用IP的工程可以的修改。
+   
+4. 参考的ALU控制信号设计如下：
+
+   ```verilog
+      case (control)
+         4'b0000: C<=ansAnd;
+			4'b0001: C<=ansOr;
+			4'b0010: C<=ansAddSub;
+			4'b0110: C<=ansAddSub;
+			4'b0111: C<=carry ? 32'b1 : 32'b0; //slt
+			4'b1001: C<= sign ? 32'b1 : 32'b0; //sltu
+			4'b1100: C<=ansXor;
+			4'b1101: C<=ansSrl;
+			4'b1110: C<=ansSll;
+			4'b1111: C<=ansSra;
+			default: C<= 32'b0;
+		endcase
+   ```

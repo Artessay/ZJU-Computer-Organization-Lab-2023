@@ -15,6 +15,8 @@ Lab1部分介绍了计算机组成中两个核心部件ALU与Regfiles的设计�
   * 赋值操作 `=` 与 `<=` 的区别是什么？
 * FSM（Finite State Machine，有限状态机）是什么，你会怎么设计状态转移部分的 code？
 
+本次实验验收时只需要关注 ALU ， Register Files 和 FSM 三个设计的仿真即可。
+
 此部分内容包括：
 
 * [Lab1-1](/Lab1/Lab1-1).
