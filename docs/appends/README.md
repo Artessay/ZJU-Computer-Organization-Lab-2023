@@ -6,3 +6,4 @@
 
 * [实验环境使用说明](/appends/environment).
 * [RISC-V 指令速查](/appends/riscv-insts).
+* [实用工具](/appends/tools).
