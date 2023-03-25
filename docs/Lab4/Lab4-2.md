@@ -2,7 +2,7 @@
 
 ## 实验内容
 
-当本实验完成时，你的SCPU模块就已经是完全由我们自己实现的了。为了便于你在实验过程中的调试和实验的验收，如果你在之前的实验中并未完成如下内容的话，请在本次实验中补充完成：
+当本实验完成时，你的SCPU模块就已经是完全由我们自己实现的了。为了便于你在实验过程中的调试和实验的验收，如果你在之前的实验中并未完成如下内容的话，你可以尝试本次实验中补充完成下列内容，以方便你进行调试：
 
 - 在DataPath种使用含32读口的RegFile，读到的Debug数据需要一路引出到SCPU的输出。
 - SCPU得到的Debug信号成为添加了Debug输入口的VGA模块的输入，在Top中进行连接。
@@ -17,9 +17,103 @@
 - B-Type: beq
 - J-Type: jal
 
+其他指令将在 Lab4-3 指令拓展与 Lab4-4 中断处理两小节实现。如果不清楚以上指令的指令格式与含义，请查看 RISC-V 手册。
+
+
+
+## 仿真代码
+
+为了方便你进行测试，我们需要搭建一个简单的仅包含 SCPU 以及 Mem(IMem & DMem) 的测试平台。
+
+这里提供了一份参考的仿真测试模块与仿真代码，如果你的端口名与之不同请自行修改。当然，你可以选择不使用该代码进行仿真。
+
+使用该模块进行仿真时，请自行书写测试代码，生成 ROM 核，并进行仿真。
+
+
+
+!> 该部分代码为尚未经过全面测试，请谨慎使用。如有问题，欢迎随时向助教反馈，谢谢！
+
+
+
+测试模块：`testbench.v`
+
+```verilog
+module testbench(
+    input clk,
+    input rst
+);
+
+    /* SCPU 中接出 */
+    wire [31:0] Addr_out;
+    wire [31:0] Data_out;       
+    wire        CPU_MIO;
+    wire        MemRW;
+    wire [31:0] PC_out;
+    /* RAM 接出 */
+    wire [31:0] douta;
+    /* ROM 接出 */
+    wire [31:0] spo;
+
+    SCPU u0(
+        .clk(clk),
+        .rst(rst),
+        .Data_in(douta),
+        .MIO_ready(CPU_MIO),
+        .inst_in(spo),
+        .Addr_out(Addr_out),
+        .Data_out(Data_out),
+        .CPU_MIO(CPU_MIO),
+        .MemRW(MemRW),
+        .PC_out(PC_out)
+    );
+
+    RAM_B u1(
+        .clka(~clk),
+        .wea(MemRW),
+        .addra(PC_out[11:2]);
+        .dina(Data_out),
+        .douta(douta)
+    );
+
+    ROM_B u2(
+        .a(PC_out[11:2]),
+        .spo(spo)
+    );
+
+endmodule
+```
+
+
+
+仿真文件：`testbench_tb.v`
+
+```verilog
+module testbench_tb();
+
+    reg clk;
+    reg rst;
+
+    testbench(.clk(clk), .rst(rst));
+
+    initial begin
+        clk = 1'b0;
+        rst = 1'b1;
+        #5;
+        rst = 1'b0;
+    end
+
+    always #50 clk = ~clk;
+
+endmodule
+```
+
+
+
+
+
 ## 验收代码
 
-- 汇编代码
+- 汇编代码（RISC-V汇编代码，如果你希望用Visual Studio Code查看，你可以尝试按照`RISC-V Extension`插件来实现代码高亮）
 
   ```
   jal zero, start # 0
@@ -198,8 +292,19 @@
   03bdf020, 03def820, 08002300;
   ```
 
-1. Data COE 包含了七段数码管的显示信息，请你修改其中的16个显示数字，并将其改为你的学号（如3210102023）和日期（如230308）。
+1. Data COE 包含了七段数码管的显示信息，请你修改其中的16个显示数字，即修改 `DMem.coe` 中的 `00000000, 11111111, 22222222..., ffffffff` 部分，将其改为你的学号（如3210102023）和日期（如230308）。修改后，这一段的代码类似如下格式：
+
+   ```
+   33333333, 22222222, 11111111, 00000000, 11111111, 00000000, 22222222, 
+   00000000, 22222222, 33333333, 22222222, 33333333, 00000000, 33333333,
+   00000000, 88888888
+   ```
+
+   
+
 2. 如果你无法得到期望结果，你或许需要理解汇编代码在做什么，TA已经给出了部分的注释，阅读起来难度应该不大，这样可以缩小你的指令错误可能范围。
+
+
 
 ## 预期表现
 
@@ -207,21 +312,28 @@
 
 - After reset, the 7-segment LEDs are lit in turn.
 - ***Only run once after reset, not loop***.
+- 重启后，七段数码管依次亮起。
+- 只在重启后亮一次，之后不变。
 
-见video0
+
 
 ### Number Mode && `SW[4:3] = 01`
 
 - Show your student ID and date digit by digit.
+- 显示你的学号与日期
 
-见video1
+
 
 ### Number Mode && `SW[4:3] = 10`
 
 - Self-incrementing from the lowest digit.
+- 数字自增
 
-见video2
+
 
 ### Graphics Mode && `SW[4:3] = 11`
 
 - Rectangle animation.
+- 变化的矩形
+
+如果在某模式下你的表现与预期不符，请查看该模式对应代码，缩小检查范围。
