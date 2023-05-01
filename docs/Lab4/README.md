@@ -10,3 +10,4 @@
 * [Lab4-1](/Lab4/Lab4-1)
 * [Lab4-2](/Lab4/Lab4-2)
 * [Lab4-3](/Lab4/Lab4-3)
+* [Lab4-4](/Lab4/Lab4-4)

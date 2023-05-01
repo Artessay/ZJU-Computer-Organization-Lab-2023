@@ -18,6 +18,8 @@
   * [Lab4-0](/Lab4/Lab4-0)
   * [Lab4-1](/Lab4/Lab4-1)
   * [Lab4-2](/Lab4/Lab4-2)
+  * [Lab4-3](/Lab4/Lab4-3)
+  * [Lab4-4](/Lab4/Lab4-4)
 * [附录](/appends/)
   * [实验环境使用说明](/appends/environment)
   * [RISC-V 指令速查](/appends/riscv-insts)
