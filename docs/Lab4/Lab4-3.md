@@ -12,9 +12,9 @@
 
 
 - R-Type: add, sub, and, or, xor, slt, srl, **sll**, **sra**, **sltu**
-- I-Type: addi, andi, ori, xori, slti, srli, **slli**, **srai**, **slti**, **sltiu**, **lb**, **lh**, lw, **lbu**, **lhu**, **jalr**
-- S-Type: **sb**, **sh**, sw
-- B-Type: beq, **bne**, **blt**, **bge**, **bltu**, **bgeu**
+- I-Type: addi, andi, ori, xori, slti, srli, **slli**, **srai**, **slti**, **sltiu**, lw, **jalr**
+- S-Type: sw
+- B-Type: beq, **bne**
 - J-Type: jal
 - **U-Type**: **lui**, **auipc**
 
@@ -29,6 +29,13 @@
   - RISC-V汇编代码，如果你希望用Visual Studio Code查看，你可以尝试安装`RISC-V Extension`插件来实现代码高亮。
   
   - Lab4-3的验收代码与Lab4-2相比只有在Instruction Code上做出了修改，在Data的COE中保持相同。你可以不必修改RAM中的COE文件。
+  
+  - 为了使用此验收代码，你可能需要在此实验的基础上额外实现以下这些指令，请谨慎考虑。
+    - I-Type: **lb**, **lh**, **lbu**, **lhu**
+    - S-Type: **sb**, **sh**
+    - B-Type: **blt**, **bge**, **bltu**, **bgeu**
+    - U-Type: **auipc**
+  
 
 
   ```
