@@ -1,5 +1,5 @@
 <br>
 
 <span style="font-size:0.9em">
-    【实验验收表】：https://docs.qq.com/sheet/DUXhyT2VFbmxiek9Q?tab=BB08J2 文档正在努力撰写过程中ing...
+    感谢同学们一个学期的陪伴，祝愿同学们前程似锦，未来可期！ ——QRH
 <span>
